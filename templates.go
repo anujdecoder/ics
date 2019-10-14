@@ -4,13 +4,13 @@ const ics = `BEGIN:VCALENDAR
 PRODID:{{.ProdId}}
 METHOD:REQUEST
 VERSION:2.0
-{{range $ve := .Events}}{{$ve}}{{end}}
-END:VCALENDAR`
+{{range $ve := .Events}}{{$ve}}
+{{end}}END:VCALENDAR`
 
 const vevent = `BEGIN:VEVENT
-ORGANIZER;CN={{.Organizer.CommonName}}:mailto:{{.Organizer.EmailAddress}}\n
-{{range $at := .Attendees}}ATTENDEE;CN={{$at.CommonName}};RSVP=FALSE:mailto:{{$at.EmailAddress}};CUTYPE={{$at.CuType}};ROLE={{$at.Role}};PARTSTAT={{$at.PartStatus}}{{end}}
-LOCATION:{{.Location}}
+ORGANIZER;CN="{{.Organizer.CommonName}}":mailto:{{.Organizer.EmailAddress}}\n
+{{range $at := .Attendees}}ATTENDEE;CN="{{$at.CommonName}}";RSVP=FALSE:mailto:{{$at.EmailAddress}};CUTYPE={{$at.CuType}};ROLE={{$at.Role}};PARTSTAT={{$at.PartStatus}}
+{{end}}LOCATION:{{.Location}}
 DTSTAMP:{{.DtStamp}}
 DTSTART:{{.DtStart}}
 DTEND:{{.DtEnd}}
