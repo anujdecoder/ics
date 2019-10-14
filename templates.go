@@ -9,7 +9,7 @@ VERSION:2.0
 
 const vevent = `BEGIN:VEVENT
 ORGANIZER;CN="{{.Organizer.CommonName}}":mailto:{{.Organizer.EmailAddress}}
-{{range $at := .Attendees}}ATTENDEE;CN="{{$at.CommonName}}";RSVP=FALSE:mailto:{{$at.EmailAddress}};CUTYPE={{$at.CuType}};ROLE={{$at.Role}};PARTSTAT={{$at.PartStatus}}
+{{range $at := .Attendees}}ATTENDEE;CUTYPE={{$at.CuType}};ROLE={{$at.Role}};PARTSTAT={{$at.PartStatus}};CN="{{$at.CommonName}}";RSVP=FALSE:mailto:{{$at.EmailAddress}}
 {{end}}LOCATION:{{.Location}}
 DTSTAMP:{{.DtStamp}}
 DTSTART:{{.DtStart}}
