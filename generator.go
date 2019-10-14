@@ -2,6 +2,7 @@ package ics
 
 import (
 	"bytes"
+	"encoding/hex"
 	"strconv"
 	"strings"
 	"text/template"
@@ -27,6 +28,7 @@ func Generate(prodId string, events ...*Event) (string, error) {
 			Description: strings.Join(strings.Split(event.Description, "\n"), `\n`),
 		}
 		event.dtStamp = e.DtStamp
+		event.UID = hex.EncodeToString([]byte(e.UID))
 
 		buf := &bytes.Buffer{}
 		if err := eventTmpl.Execute(buf, e); err != nil {
@@ -62,6 +64,7 @@ func (event *Event) Generate(prodId string) (string, error) {
 		Description: strings.Join(strings.Split(event.Description, "\n"), `\n`),
 	}
 	event.dtStamp = e.DtStamp
+	event.UID = hex.EncodeToString([]byte(e.UID))
 
 	eventTmpl, err := template.New("events").Parse(vevent)
 	if err != nil {

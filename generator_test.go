@@ -50,7 +50,7 @@ func TestGenerate(t *testing.T) {
 			CommonName:   "My Calendar",
 			EmailAddress: "my@calendar.com",
 		},
-		UID: "123-123-123",
+		UID: "123123123",
 	}
 
 	gotIcs, err := Generate("com.calendar.my", event)
@@ -73,7 +73,7 @@ DTEND:20190101T093000Z
 SUMMARY:Event Name
 DESCRIPTION:Event Description
 CLASS:PUBLIC
-UID:123-123-123
+UID:313233313233313233
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR`
@@ -105,7 +105,7 @@ func TestEvent_Generate(t *testing.T) {
 			CommonName:   "My Calendar",
 			EmailAddress: "my@calendar.com",
 		},
-		UID: "123-123-123",
+		UID: "123123123",
 	}
 
 	gotIcs, err := event.Generate("com.calendar.my")
@@ -128,7 +128,7 @@ DTEND:20190101T093000Z
 SUMMARY:Event Name
 DESCRIPTION:Event Description
 CLASS:PUBLIC
-UID:123-123-123
+UID:313233313233313233
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR`
