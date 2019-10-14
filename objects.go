@@ -69,6 +69,7 @@ type AttendeeStatus string
 const (
 	AttendeeStatus_TENTATIVE AttendeeStatus = "TENTATIVE"
 	AttendeeStatus_ACCEPTED  AttendeeStatus = "ACCEPTED"
+	AttendeeStatus_DECLINED  AttendeeStatus = "DECLINED"
 )
 
 type CalendarUserType string
