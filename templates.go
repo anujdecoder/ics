@@ -8,7 +8,7 @@ VERSION:2.0
 {{end}}END:VCALENDAR`
 
 const vevent = `BEGIN:VEVENT
-ORGANIZER;CN="{{.Organizer.CommonName}}":mailto:{{.Organizer.EmailAddress}}\n
+ORGANIZER;CN="{{.Organizer.CommonName}}":mailto:{{.Organizer.EmailAddress}}
 {{range $at := .Attendees}}ATTENDEE;CN="{{$at.CommonName}}";RSVP=FALSE:mailto:{{$at.EmailAddress}};CUTYPE={{$at.CuType}};ROLE={{$at.Role}};PARTSTAT={{$at.PartStatus}}
 {{end}}LOCATION:{{.Location}}
 DTSTAMP:{{.DtStamp}}

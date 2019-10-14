@@ -64,7 +64,7 @@ PRODID:com.calendar.my
 METHOD:REQUEST
 VERSION:2.0
 BEGIN:VEVENT
-ORGANIZER;CN="My Calendar":mailto:my@calendar.com\n
+ORGANIZER;CN="My Calendar":mailto:my@calendar.com
 ATTENDEE;CN="John Wick";RSVP=FALSE:mailto:john.wick@gmail.com;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED
 LOCATION:location
 DTSTAMP:` + event.dtStamp + `
@@ -119,7 +119,7 @@ PRODID:com.calendar.my
 METHOD:REQUEST
 VERSION:2.0
 BEGIN:VEVENT
-ORGANIZER;CN="My Calendar":mailto:my@calendar.com\n
+ORGANIZER;CN="My Calendar":mailto:my@calendar.com
 ATTENDEE;CN="John Wick";RSVP=FALSE:mailto:john.wick@gmail.com;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED
 LOCATION:location
 DTSTAMP:` + event.dtStamp + `
