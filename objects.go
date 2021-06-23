@@ -13,6 +13,9 @@ type Event struct {
 	Location     string
 	DtEnd        time.Time
 	DtStart      time.Time
+	RRule        []string
+	ExRule       []string
+	ExDate       []time.Time
 	Transparency Transparency
 	Attendees    []Attendee
 	Organizer    Attendee

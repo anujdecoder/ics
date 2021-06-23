@@ -25,7 +25,11 @@ func Generate(prodId string, events ...*Event) (string, error) {
 			DtStamp:     formatDateTime(time.Now()),
 			DtEnd:       formatDateTime(event.DtEnd),
 			DtStart:     formatDateTime(event.DtStart),
+			ExDate:      make([]string, len(event.ExDate)),
 			Description: strings.Join(strings.Split(event.Description, "\n"), `\n`),
+		}
+		for i, exd := range event.ExDate {
+			e.ExDate[i] = formatDateTime(exd)
 		}
 		event.dtStamp = e.DtStamp
 		event.UID = hex.EncodeToString([]byte(e.UID))
@@ -61,7 +65,11 @@ func (event *Event) Generate(prodId string) (string, error) {
 		DtStamp:     formatDateTime(time.Now()),
 		DtEnd:       formatDateTime(event.DtEnd),
 		DtStart:     formatDateTime(event.DtStart),
+		ExDate:      make([]string, len(event.ExDate)),
 		Description: strings.Join(strings.Split(event.Description, "\n"), `\n`),
+	}
+	for i, exd := range event.ExDate {
+		e.ExDate[i] = formatDateTime(exd)
 	}
 	event.dtStamp = e.DtStamp
 	event.UID = hex.EncodeToString([]byte(e.UID))

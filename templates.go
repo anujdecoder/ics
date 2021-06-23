@@ -13,7 +13,10 @@ ORGANIZER;CN="{{.Organizer.CommonName}}":mailto:{{.Organizer.EmailAddress}}
 {{end}}LOCATION:{{.Location}}
 DTSTAMP:{{.DtStamp}}
 DTSTART:{{.DtStart}}
-DTEND:{{.DtEnd}}
+DTEND:{{.DtEnd}}{{range $ru := .RRule}}
+RRULE:{{$ru}}{{end}}{{range $ru := .ExRule}}
+EXRULE:{{$ru}}{{end}}{{range $ru := .ExDate}}
+EXDATE:{{$ru}}{{end}}
 SUMMARY:{{.Summary}}
 DESCRIPTION:{{.Description}}
 CLASS:{{.Class}}
@@ -26,5 +29,6 @@ type vEvent struct {
 	DtStamp     string
 	DtEnd       string
 	DtStart     string
+	ExDate      []string
 	Description string
 }
