@@ -9,7 +9,7 @@ func Test_formatDateTime(t *testing.T) {
 	t.Run("double digits", func(t *testing.T) {
 		date := time.Date(2019, time.December, 12, 12, 12, 12, 0, time.UTC)
 
-		dateString := formatDateTime(date)
+		dateString := FormatDateTime(date)
 		expectedDateString := "20191212T121212Z"
 
 		if dateString != expectedDateString {
@@ -20,7 +20,7 @@ func Test_formatDateTime(t *testing.T) {
 	t.Run("single digits", func(t *testing.T) {
 		date := time.Date(2019, time.January, 1, 9, 0, 0, 0, time.UTC)
 
-		dateString := formatDateTime(date)
+		dateString := FormatDateTime(date)
 		expectedDateString := "20190101T090000Z"
 
 		if dateString != expectedDateString {
