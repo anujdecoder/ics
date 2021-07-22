@@ -20,14 +20,13 @@ func Generate(prodId string, events ...*Event) (string, error) {
 		return "", err
 	}
 	for _, event := range events {
-		attendees := make([]Attendee, 0, len(event.Attendees))
-		for _, att := range event.Attendees {
-			if att.Rsvp == "" {
-				att.Rsvp = Rsvp_False
-				attendees = append(attendees, att)
+
+		for idx := range event.Attendees {
+			if event.Attendees[idx].Rsvp == "" {
+				event.Attendees[idx].Rsvp = Rsvp_False
 			}
 		}
-		event.Attendees = attendees
+
 		e := &vEvent{
 			Event:       event,
 			DtStamp:     FormatDateTime(time.Now()),
@@ -68,14 +67,11 @@ func (event *Event) Generate(prodId string) (string, error) {
 		Events: []string{},
 	}
 
-	attendees := make([]Attendee, 0, len(event.Attendees))
-	for _, att := range event.Attendees {
-		if att.Rsvp == "" {
-			att.Rsvp = Rsvp_False
-			attendees = append(attendees, att)
+	for idx := range event.Attendees {
+		if event.Attendees[idx].Rsvp == "" {
+			event.Attendees[idx].Rsvp = Rsvp_False
 		}
 	}
-	event.Attendees = attendees
 
 	e := &vEvent{
 		Event:       event,
