@@ -20,6 +20,13 @@ func Generate(prodId string, events ...*Event) (string, error) {
 		return "", err
 	}
 	for _, event := range events {
+
+		for idx := range event.Attendees {
+			if event.Attendees[idx].Rsvp == "" {
+				event.Attendees[idx].Rsvp = Rsvp_False
+			}
+		}
+
 		e := &vEvent{
 			Event:       event,
 			DtStamp:     FormatDateTime(time.Now()),
@@ -58,6 +65,12 @@ func (event *Event) Generate(prodId string) (string, error) {
 	obj := &generator{
 		ProdId: prodId,
 		Events: []string{},
+	}
+
+	for idx := range event.Attendees {
+		if event.Attendees[idx].Rsvp == "" {
+			event.Attendees[idx].Rsvp = Rsvp_False
+		}
 	}
 
 	e := &vEvent{
